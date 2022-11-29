@@ -1,0 +1,17 @@
+const Counter = ({ name }) => {
+  const [state, setState] = useGlobalState();
+  const count = state[name] || 0;
+  const increment = () => {
+    setState({ ...state, [name]: count + 1 });
+  };
+  const decrement = () => {
+    setState({ ...state, [name]: count - 1 });
+  };
+  return (
+    <div>
+      {count}
+      <button onClick={increment}>+1</button>
+      <button onClick={decrement}>-1</button>
+    </div>
+  );
+};
